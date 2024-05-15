@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import CardComponent from "./components/CardComponent";
 import { PokemonResult } from "./lib/pokeapi";
@@ -27,10 +27,10 @@ const App: React.FC = () => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [pokemon, setPokemon] = React.useState<PokemonResult | null>(null);
+  const [totalPokemon, setTotalPokemon] = React.useState<number | 0>(0);
 
   const handleSearch = async (search: string) => {
     if (search === "") {
-      setPokemon(null);
       return;
     }
     setLoading(true);
@@ -39,6 +39,23 @@ const App: React.FC = () => {
     setError(result.error || null);
     setLoading(false);
   };
+
+  useEffect(() => {
+    const getTotalPokemonCount = async () => {
+      try {
+        const response = await fetch(
+          "https://pokeapi.co/api/v2/pokemon?limit=1"
+        );
+        const data = await response.json();
+        setTotalPokemon(data.count);
+      } catch (error) {
+        return;
+      }
+    };
+
+    getTotalPokemonCount();
+    handleSearch(`${Math.floor(Math.random() * totalPokemon)}`);
+  }, [totalPokemon]);
 
   return (
     <>
