@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./main.css";
+@import "./global.css";
 @import "./searchbar.css";
-@import "./card.css";
+@import "./cardComponent.css";

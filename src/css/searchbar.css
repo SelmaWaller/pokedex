@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-  .searchbar {
-    @apply rounded-md mt-7 py-2 px-4 bg-white shadow-sm text-slate-500;
+  .searchbar input {
+    @apply rounded-tl-md rounded-bl-md mt-7 py-2 px-4 bg-white shadow-sm text-slate-500;
+  }
+  .searchbar button {
+    @apply rounded-none rounded-tr-md rounded-br-md;
   }
 }
