@@ -7,7 +7,7 @@
     @apply flex flex-col items-start bg-white shadow-sm m-7 max-w-3xl mx-auto p-2 rounded-xl mx-2 sm:flex-row md:mx-auto;
   }
   img {
-    @apply max-w-md rounded-lg bg-slate-100;
+    @apply w-full rounded-lg bg-slate-100;
   }
   .info {
     @apply pl-0 sm:pl-4 text-left w-full;

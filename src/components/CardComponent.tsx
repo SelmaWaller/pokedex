@@ -17,13 +17,13 @@ const CardComponent: React.FC<Props> = ({ pokemon }) => {
         <p className="mt-5 font-bold">Types:</p>
         <ul>
           {pokemon.types.map((type) => (
-            <li>{type.type.name}</li>
+            <li key={type.type.name}>{type.type.name}</li>
           ))}
         </ul>
         <p className="mt-5 font-bold">Moves:</p>
         <ul className="max-h-72 overflow-y-auto">
           {pokemon.moves.map((move) => (
-            <li>{move.move.name}</li>
+            <li key={move.move.name}>{move.move.name}</li>
           ))}
         </ul>
       </div>
