@@ -44,7 +44,7 @@ const App: React.FC = () => {
     const getTotalPokemonCount = async () => {
       try {
         const response = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=1"
+          "https://pokeapi.co/api/v2/pokemon-species/?limit=1"
         );
         const data = await response.json();
         setTotalPokemon(data.count);
