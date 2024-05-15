@@ -14,16 +14,16 @@ const CardComponent: React.FC<Props> = ({ pokemon }) => {
       />
       <div className="info">
         <h4>{pokemon.name.toUpperCase()}</h4>
-        <p className="mt-6 font-bold">Types:</p>
+        <p className="mt-5 font-bold">Types:</p>
         <ul>
           {pokemon.types.map((type) => (
-            <li>{type.type.name}</li>
+            <li key={type.type.name}>{type.type.name}</li>
           ))}
         </ul>
-        <p className="mt-6 font-bold">Moves:</p>
-        <ul className="max-h-64 overflow-y-auto">
+        <p className="mt-5 font-bold">Moves:</p>
+        <ul className="max-h-72 overflow-y-auto">
           {pokemon.moves.map((move) => (
-            <li>{move.move.name}</li>
+            <li key={move.move.name}>{move.move.name}</li>
           ))}
         </ul>
       </div>
