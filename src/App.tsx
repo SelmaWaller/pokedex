@@ -27,7 +27,6 @@ const App: React.FC = () => {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
   const [pokemon, setPokemon] = React.useState<PokemonResult | null>(null);
-  const [totalPokemon, setTotalPokemon] = React.useState<number | 0>(0);
 
   const handleSearch = async (search: string) => {
     if (search === "") {
@@ -47,15 +46,15 @@ const App: React.FC = () => {
           "https://pokeapi.co/api/v2/pokemon-species/?limit=1"
         );
         const data = await response.json();
-        setTotalPokemon(data.count);
+        const total = data.count;
+        handleSearch(`${Math.floor(Math.random() * total)}`);
       } catch (error) {
         return;
       }
     };
 
     getTotalPokemonCount();
-    handleSearch(`${Math.floor(Math.random() * totalPokemon)}`);
-  }, [totalPokemon]);
+  }, []);
 
   return (
     <>
